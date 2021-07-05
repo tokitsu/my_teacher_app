@@ -1,7 +1,11 @@
 = simple_form_for @course do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  = f.input :title
-  = f.text_area :description
-  /= f.submit 'Save'
-  = f.button :submit
+  
+  .form-inputs
+    = f.input :title
+    = f.label :description
+    = f.rich_text_area :description
+  
+  .form-actions
+    = f.button :submit
